@@ -1,0 +1,26 @@
+{
+  "name": "forgetmenot",
+  "version": "1.0.0",
+  "description": "project one web app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/array415/forgetMeNot.git"
+  },
+  "author": "array415",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/array415/forgetMeNot/issues"
+  },
+  "homepage": "https://github.com/array415/forgetMeNot#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "bower": "^1.7.9",
+    "express": "^4.13.3",
+    "mongoose": "^4.2.9"
+  }
+}

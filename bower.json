@@ -1,0 +1,17 @@
+{
+  "name": "forgetmenot",
+  "description": "project one web app",
+  "main": "server.js",
+  "authors": [
+    "array415"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/array415/forgetMeNot",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
