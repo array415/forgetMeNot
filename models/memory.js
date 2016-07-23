@@ -6,7 +6,9 @@ var MemorySchema = new Schema({
   // user_id:{
   //   type: ObjectId,
   //   ref: 'user'
-  // }
+  // },
+  mood: String,
+
 });
 
 var Memory = mongoose.model('Memory', MemorySchema);

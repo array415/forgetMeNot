@@ -11,16 +11,10 @@
 
     </script>
   <body>
-    <h1>HELLO</h1>
-    <a href="#">logout</a>
-    <a href="#">create new</a>
-    <div class="container">
-      <div class="row">
-        <img style="height: 200px; width: 200px;" src="http://nationalfireescapeassociation.org/wp-content/uploads/2013/01/suppression.jpg" alt="" class="col-sm-4"/>
-        <p class="col-sm-7">
-              abc
-        </p>
-      </div>
-    </div>
+    <form action="/memory/all" method="POST">
+  <input type="text" placeholder="name" name="memory">
+  <input type="text" placeholder="quote" name="mood">;
+  <button type="submit">Submit</button>
+</form>
   </body>
 </html>
