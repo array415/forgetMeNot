@@ -1,1 +1,2 @@
-module.exports.site = require('./siteController');
+module.exports.memory = require('./memoryController');
+module.exports.User = require('./userController');

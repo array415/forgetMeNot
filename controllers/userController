@@ -1,6 +1,0 @@
-var users = [
-  {name: 'frank'},
-  {name: 'frankOne'},
-  {name: 'doug'},
-  {name: 'andy'}
-];

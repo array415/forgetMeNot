@@ -4,17 +4,21 @@
     <meta charset="utf-8">
     <title>Memories</title>
     <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <script src="../bower_components/handlebars/handlebars.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="./public/style.css">
 
-    </script>
-  <body>
-    <form action="/memory/all" method="POST">
-  <input type="text" placeholder="name" name="memory">
+
+<body>
+  <form action="/memories" method="POST">
+  <input type="textarea" placeholder="name" name="memory">
   <input type="text" placeholder="quote" name="mood">;
   <button type="submit">Submit</button>
 </form>
+
+<script type="text/x-handlebars-template">
+  window.user = {{{ user }}};
+</script>
   </body>
 </html>

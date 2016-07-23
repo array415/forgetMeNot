@@ -6,14 +6,15 @@
 
     <script src="vendor/jQuery/dist/jquery.min.js"></script>
     <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="vendor/handlebars/handlebars.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
     <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
 
   </head>
   <body>
-    <!-- <form class="form-inline">
+
+    <form action="/" method="POST" class="form-inline">
       <div class="form-group">
         <label for="username">Username</label>
         <input type="text" name="username" class="form-control">
@@ -22,12 +23,9 @@
         <label for="password">Password</label>
         <input type="password" name="password" class="for-control">
       </div>
-    </form> -->
-
-    <form action="/signin" method="POST">
-  <input type="text" placeholder="name" name="username">
-  <input type="text" placeholder="quote" name="password">;
-  <button type="submit">Submit</button>
-</form>
+      <div class="form-group">
+        <input type="submit" name="submit" value="Log-in!">
+      </div>
+    </form>
   </body>
 </html>
