@@ -1,5 +1,6 @@
 var db = require('../models');
 var memory = db.Memory;
+var user = db.User;
 
 function index(req, res){
   memory.find({}, function(err, foundMemory){
