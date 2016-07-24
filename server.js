@@ -26,7 +26,6 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
 //bodyparser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -34,16 +33,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 //static
 app.use(express.static(__dirname + '/public'));
 
-
 app.get('/', function(req, res){
-if(req.user){
-  res.sendFile(__dirname + '/views/memory.html');
-} else{
-  res.redirect('/signin');
-}
+  if(req.user){
+    res.sendFile(__dirname + '/views/memory.html');
+  } else{
+    res.redirect('/signin');
+  }
 });
 
-app.get('/create', function(req, res){
+app.get('/memories/new', function(req, res){
   res.sendFile(__dirname + '/views/create.html');
 });
 
@@ -71,6 +69,8 @@ app.post('/', passport.authenticate('local'), function (req, res) {
   res.redirect('/'); // sanity check
   // res.redirect('/'); // preferred!
 });
+
+
 
 app.get('/logout', function (req, res) {
   console.log("BEFORE logout", JSON.stringify(req.user));

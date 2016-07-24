@@ -20,7 +20,18 @@
     <form action="/memories" method="POST">
       <div class="form-group">
         <label for="mood">Mood</label>
-        <input type="text" name="mood">
+        <div class="radio">
+          <label>
+            <input type="radio" name="mood" value="true" checked>
+             Happy Memory
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="mood" value="false">
+             Sad Memory
+          </label>
+        </div>
       </div>
       <div class="form-group">
         <label for="who">Who's Memory</label>

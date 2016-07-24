@@ -8,7 +8,11 @@ $(document).ready(function() {
   });
 
   $('.newMem').on('click', function(redirect){
-    window.location = '/create';
+    window.location = '/memories/new';
+  });
+
+  $('.logout').on('click', function(redirect){
+    window.location = '/logout';
   });
 });
 

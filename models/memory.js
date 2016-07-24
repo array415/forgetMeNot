@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var MemorySchema = new Schema({
   memory: String,
-  mood: String,
+  mood: Boolean,
   imgUrl: String,
   who: String,
   user_id: {type: Schema.Types.ObjectId, ref: 'User'}

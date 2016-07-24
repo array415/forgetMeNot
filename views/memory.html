@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Memories</title>
+<head>
+  <meta charset="utf-8">
+  <title>Memories</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="/styles/styles.css">
 
-
-    <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
-    <script href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.js" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-    <script type="text/javascript" src="/scripts/app.js">
-
-    </script>
-    <body>
-      <a href="/logout">logout</a>
-
-      <button type="button" name="button" class="btn primary-btn newMem">Create a new memory</button>
+  <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+  <script href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.js" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <body>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3">forgetMeNot</h1>
+        <p class="lead">We remember their love when they can no longer.</p>
+        <button type="button" name="button" class="btn primary-btn newMem">New Memory</button>
+        <button type="button" name="button" class="btn primary-btn logout">Log-out</button>
+      </div>
+    </div>
 
     <div class="memoryWrapper">
       <script  class="memoryTemplate" type="text/x-handlebars-template">
@@ -28,14 +30,15 @@
 
             </div>
             <div class="col-sm-10">
-              <h1> {{who}}'s Memory <h1>
-              <p> {{memory}} </p>
+              <h1> {{who}}'s Memory </h1>
+                <p> {{memory}} </p>
+                <p> {{mood}} </p>
+              </div>
             </div>
           </div>
-        </div>
-      </script>
-    </div>
+        </script>
+      </div>
 
 
-  </body>
-</html>
+    </body>
+    </html>
