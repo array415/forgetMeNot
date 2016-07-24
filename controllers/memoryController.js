@@ -2,20 +2,42 @@ var db = require('../models');
 var memory = db.Memory;
 var user = db.User;
 
+
 function index(req, res){
-  memory.find({}, function(err, foundMemory){
-    res.json(foundMemory);
+  memory.find({})
+  .populate('user')
+  .exec(function(err, memories){
+    if (err) {
+      res.status(500).send(err);
+      return;
+    }
+    res.json(memories);
   });
 }
 
-function show(req, res){
-  memory.findById(req.params._id, function(err, foundEvent) {
-    res.json(foundEvent);
-   });
- }
-function create(req, res){
-  var newMem = new memory(req.body);
 
+function show(req, res){
+  memory.findById(req.params._id)
+    .populate('user')
+    .exec(function(err, memory){
+      if (err){
+        res.status(500).send(err);
+        return;
+      }
+      res.json(memory);
+    });
+  }
+
+
+function create(req, res){
+  var newMem = new memory(req.body, {user_id: req.user._id});
+  user.findOne({_id: req.body.user}, function(err, author){
+    if(err){
+      console.log(err);
+    }
+
+   newMem.user_id = user;
+  });
   newMem.save(function(err, newMem){
     if(err){
       console.log(err);
