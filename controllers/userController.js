@@ -26,7 +26,7 @@ function create(req, res){
   User.register(new User({username: req.body.username, name: req.body.name}), req.body.password,
     function (err, newUser) {
       passport.authenticate('local')(req, res, function() {
-        res.redirect('/users');
+        res.redirect('/');
       });
     }
   );

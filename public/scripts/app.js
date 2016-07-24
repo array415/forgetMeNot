@@ -34,6 +34,11 @@ $(document).ready(function() {
     window.location = '/logout';
   });
 
+  $('.signInWrapper').on('click', '.singUp',  function(event){
+    event.preventDefault();
+    window.location = '/signup';
+  });
+
   function deleteSuccess(data){
     console.log('deleted ' + JSON.stringify(data.memory));
     window.location = '/';
