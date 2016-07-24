@@ -18,28 +18,30 @@
   <div class="createWrapper">
 
     <form action="/memories" method="POST">
+      <h1> forgetMeNot </h1>
+
       <div class="form-group">
         <label for="mood">Mood</label>
         <div class="radio">
           <label>
-            <input type="radio" name="mood" value="true" checked>
+            <input class="form-control" type="radio" name="mood" value="true" checked>
              Happy Memory
           </label>
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="mood" value="false">
+            <input class="form-control" type="radio" name="mood" value="false">
              Sad Memory
           </label>
         </div>
       </div>
       <div class="form-group">
         <label for="who">Who's Memory</label>
-        <input type="text" name="who">
+        <input class="form-control" type="text" name="who">
       </div>
       <div class="form-group">
         <label for="memory">Memory</label>
-        <textarea name="memory" class='form-group' rows='3'></textarea>
+        <textarea name="memory" class='form-control' rows='3'></textarea>
       </div>
       <div class="form-group">
         <input type="submit" name="name" value="Submit!" class="btn btn-primary">
