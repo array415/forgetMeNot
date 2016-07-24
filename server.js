@@ -42,6 +42,10 @@ if(req.user){
 }
 });
 
+app.get('/create', function(req, res){
+  res.sendFile(__dirname + '/views/create.html')
+});
+
 app.get('/signin', function(req, res){
   res.sendFile(__dirname + '/views/signin.html');
 });
