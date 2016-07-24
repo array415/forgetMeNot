@@ -36,7 +36,7 @@ $(document).ready(function() {
 
   $('.signInWrapper').on('click', '.singUp',  function(event){
     event.preventDefault();
-    window.location = '/signup';
+    window.location = '/users';
   });
 
   function deleteSuccess(data){

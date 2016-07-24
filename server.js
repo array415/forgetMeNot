@@ -49,7 +49,7 @@ app.get('/signin', function(req, res){
   res.sendFile(__dirname + '/views/signin.html');
 });
 
-app.get('/signup', function(req, res){
+app.get('/users', function(req, res){
   res.sendFile(__dirname + '/views/signup.html');
 });
 
@@ -61,13 +61,12 @@ app.delete('/memories/:_id', controllers.memory.destroy);
 
 app.get('/users', controllers.User.index);
 app.get('/users/:_id', controllers.User.show);
-app.post('/signup', controllers.User.create);
+app.post('/users', controllers.User.create);
 app.delete('/users/:_id', controllers.User.destroy);
 
 app.post('/', passport.authenticate('local'), function (req, res) {
   console.log(req.user);
-  res.redirect('/'); // sanity check
-  // res.redirect('/'); // preferred!
+  res.redirect('/');
 });
 
 
