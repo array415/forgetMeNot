@@ -7,16 +7,37 @@ $(document).ready(function() {
     });
   });
 
-  $('.newMem').on('click', function(redirect){
+ $('.memoryWrapper').on('click', '.deleteBtn', function(deleted){
+   $.ajax({
+     method: 'DELETE',
+     url: '/memories/' + $(this).attr('data-id'),
+     success: deleteSuccess,
+     error: function(x){
+       console.log("no" + x);
+     }
+   });
+ });
+
+
+
+
+
+ $('.memoryWrapper').on('click', '.showBtn', function(e){
+   window.location = '/memories/' + $(this).attr('data-id');
+
+ });
+ $('.newMem').on('click', function(redirect){
     window.location = '/memories/new';
   });
 
-  $('.logout').on('click', function(redirect){
+ $('.logout').on('click', function(redirect){
     window.location = '/logout';
   });
+
+  function deleteSuccess(data){
+    console.log('deleted ' + JSON.stringify(data.memory));
+  }
 });
-
-
 
 
 
