@@ -3,22 +3,35 @@
   <head>
     <meta charset="utf-8">
     <title>Memories</title>
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/signup.css">
+
+
+    <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+    <script href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.js" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script type="text/javascript" src="/scripts/app.js">
 
-    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="./public/style.css">
+    </script>
+
+    <div class="memoryWrapper">
+      <script type="text/x-handlebars-template">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-10">
+              <h1> {{name}}'s Memory <h1>
+              <p> {{memory}} </p>
+            </div>
+          </div>
+        </div>
+      </script>
+    </div>
 
 
-<body>
-  <form action="/memories" method="POST">
-  <input type="textarea" placeholder="name" name="memory">
-  <input type="text" placeholder="quote" name="mood">;
-  <button type="submit">Submit</button>
-</form>
-
-<script type="text/javascript">
-  window.user = {{{ user }}};
-</script>
   </body>
 </html>

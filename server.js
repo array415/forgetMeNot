@@ -33,14 +33,17 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //static
 app.use(express.static(__dirname + '/public'));
-app.set('view engine', 'hbs');
 
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/views/signin.html');
+if(req.user){
+  res.sendFile(__dirname + '/views/memory.html');
+} else{
+  res.redirect('/signin');
+}
 });
 
-app.get('/memories/new', function(req,res){
-  res.sendFile(__dirname + '/views/memory.html' );
+app.get('/signin', function(req, res){
+  res.sendFile(__dirname + '/views/signin.html');
 });
 
 app.get('/signup', function(req, res){
@@ -60,7 +63,7 @@ app.delete('/users/:_id', controllers.User.destroy);
 
 app.post('/', passport.authenticate('local'), function (req, res) {
   console.log(req.user);
-  res.redirect('/memories/new'); // sanity check
+  res.redirect('/'); // sanity check
   // res.redirect('/'); // preferred!
 });
 
