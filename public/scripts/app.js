@@ -19,11 +19,11 @@ $(document).ready(function() {
  });
 
 
-
-
-
  $('.memoryWrapper').on('click', '.showBtn', function(e){
-   window.location = '/memories/' + $(this).attr('data-id');
+   $.get('/memories/' + $(this).attr('data-id'), function(memory){
+     console.log(memory);
+     render(memory);
+   });
 
  });
  $('.newMem').on('click', function(redirect){
@@ -44,7 +44,6 @@ $(document).ready(function() {
 
 
 function render(memory){
-  console.log('rendering memories ' + memory);
   var memoryHtml = $('.memoryTemplate').html();
   var template = Handlebars.compile(memoryHtml);
   var html = template(memory);
