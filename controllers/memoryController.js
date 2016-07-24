@@ -42,7 +42,7 @@ function create(req, res){
     if(err){
       console.log(err);
     }
-    res.json(newMem);
+    res.redirect('/');
   });
 }
 

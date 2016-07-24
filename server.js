@@ -12,7 +12,10 @@ var User          = db.User;
 
 
 //auth
+app.use(express.static(__dirname + '/public'));
 app.use(cookieParser('secret'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(session({
   secret: 'superSecret',
   resave: false,
@@ -27,11 +30,8 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 //bodyparser
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
 
 //static
-app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res){
   if(req.user){

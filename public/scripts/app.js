@@ -36,6 +36,7 @@ $(document).ready(function() {
 
   function deleteSuccess(data){
     console.log('deleted ' + JSON.stringify(data.memory));
+    window.location = '/';
   }
 });
 
