@@ -12,9 +12,9 @@ var User          = db.User;
 
 
 //auth
-app.use(cookieParser());
+app.use(cookieParser('secret'));
 app.use(session({
-  secret: 'y0l4nD4!o52S',
+  secret: 'superSecret',
   resave: false,
   saveUninitialized: false
 }));
@@ -34,6 +34,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 //static
 app.use(express.static(__dirname + '/public'));
 
+
 app.get('/', function(req, res){
 if(req.user){
   res.sendFile(__dirname + '/views/memory.html');
@@ -43,7 +44,7 @@ if(req.user){
 });
 
 app.get('/create', function(req, res){
-  res.sendFile(__dirname + '/views/create.html')
+  res.sendFile(__dirname + '/views/create.html');
 });
 
 app.get('/signin', function(req, res){
