@@ -30,14 +30,8 @@ function show(req, res){
 
 
 function create(req, res){
-  var newMem = new memory(req.body, {user_id: req.user._id});
-  user.findOne({_id: req.body.user}, function(err, author){
-    if(err){
-      console.log(err);
-    }
-
-   newMem.user_id = user;
-  });
+  var newMem = new memory(req.body);
+  
   newMem.save(function(err, newMem){
     if(err){
       console.log(err);

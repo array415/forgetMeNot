@@ -12,20 +12,17 @@ $(document).ready(function() {
      method: 'DELETE',
      url: '/memories/' + $(this).attr('data-id'),
      success: deleteSuccess,
-     error: function(x){
-       console.log("no" + x);
+     error: function(err){
+       console.log("no" + err);
      }
    });
  });
 
 
- $('.memoryWrapper').on('click', '.showBtn', function(e){
-   $.get('/memories/' + $(this).attr('data-id'), function(memory){
-     console.log(memory);
-     render(memory);
-   });
+ $('.memoryWrapper').on('click', '.editBtn', function(e){
+   console.log($(this).data());
+  });
 
- });
  $('.newMem').on('click', function(redirect){
     window.location = '/memories/new';
   });

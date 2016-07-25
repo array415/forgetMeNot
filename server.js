@@ -19,8 +19,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(session({
   secret: 'superSecret',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -34,15 +35,17 @@ passport.deserializeUser(User.deserializeUser());
 //static
 
 app.get('/', function(req, res){
-  if(req.user){
-    res.sendFile(__dirname + '/views/memory.html');
-  } else{
-    res.redirect('/signin');
-  }
+  res.sendFile(__dirname + '/views/memory.html');
+  if (!req.user) {
+  return res.redirect('/signin');
+ }
 });
 
 app.get('/memories/new', function(req, res){
   res.sendFile(__dirname + '/views/create.html');
+  if (!req.user) {
+  return res.redirect('/signin');
+ }
 });
 
 app.get('/signin', function(req, res){

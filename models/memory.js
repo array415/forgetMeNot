@@ -6,7 +6,7 @@ var MemorySchema = new Schema({
   mood: Boolean,
   imgUrl: String,
   who: String,
-  user: {type: Schema.Types.ObjectId, ref: 'User'}
+  user: [{type: Schema.Types.ObjectId, ref: 'User'}]
 });
 
 var Memory = mongoose.model('Memory', MemorySchema);
