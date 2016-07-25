@@ -13,6 +13,7 @@ $(document).ready(function() {
     allMemories = memories;
     render();
   });
+
   $('.memoryWrapper').on('click', '.deleteBtn', function(deleted){
     $.ajax({
       method: 'DELETE',
@@ -35,17 +36,20 @@ $(document).ready(function() {
 
   function deleteSuccess(data){
     console.log('deleted ' + JSON.stringify(data.memory));
-    window.location = '/';
+    for(var i = 0; i < allMemories.length; i++){
+      if(allMemories[i]._id === data._id) {
+        allMemories.splice(i, 1);
+        console.log(allMemories);
+        break;
+      }
+    }
+    render();
+  }
+
+  function render(memory){
+    $('.memoryWrapper').empty();
+    var html = template({memory: allMemories});
+    $('.memoryWrapper').prepend(html);
   }
 
 });
-
-
-
-
-
-function render(memory){
-
-  var html = template({memory: allMemories});
-  $('.memoryWrapper').prepend(html);
-}

@@ -3,7 +3,7 @@ var memory = db.Memory;
 
 function index(req, res){
   memory.find({})
-  .populate('user')
+  .populate('_user')
   .exec(function(err, memories){
     if (err) {
       res.status(500).send(err);
@@ -16,7 +16,7 @@ function index(req, res){
 
 function show(req, res){
   memory.findById(req.params._id)
-  .populate('user')
+  .populate('_user')
   .exec(function(err, memory){
     if (err){
       res.status(500).send(err);
@@ -28,22 +28,17 @@ function show(req, res){
 
 
 function create(req, res){
-  console.log(req.user);
   var newMemory = new memory(req.body);
-  // .populate('user');
-  newMemory.user = req.user;
-  console.log("Logging memory");
-  console.log(newMemory);
-  console.log("Logging user attached to memory");
-  console.log(newMemory.user);
+  newMemory._user = req.user;
   newMemory.save(function(err, savedMemory){
     if(err){
       console.log(err);
     }
 
-    });
+  });
   res.redirect('/');
 }
+
 
 
 function update(req, res){
@@ -73,7 +68,7 @@ function showUser(req, res){
     .populate('_user')
     .exec(function(err, memory){
       if (err){
-        res.status(500).send(err);
+        res.send(err);
         return;
       }
       res.json(memory);

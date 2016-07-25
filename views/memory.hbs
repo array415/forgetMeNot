@@ -15,7 +15,7 @@
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <h1 class="display-3">forgetMeNot</h1>
-        <p class="lead">We remember their love when they can no longer.</p>
+        <p class="lead">We remember when they can no longer.</p>
         <button type="button" name="button" class="btn primary-btn newMem">New Memory</button>
         <button type="button" name="button" class="btn primary-btn logout">Log-out</button>
       </div>
@@ -26,25 +26,26 @@
     <div class="memoryWrapper">
       <script  class="memoryTemplate" type="text/javascipt">
 
-      <div class="container">
-      \{{#each memory}}
-      <div class="row">
-      <div class="col-sm-2">
-      \{{#if mood}}
-      <img src="http://imgur.com/jBOPYxF.jpg" class="img-circle"/>
-      \{{else}}
-      <img src="http://imgur.com/Ko1osSG.jpg" class="img-circle"/>
-      \{{/if}}
-      </div>
-      <div class="col-sm-10 memory">
-      <h3> \{{who}}s Memory </h3>
-      <p> \{{memory}} </p>
-      <button type="button" name="deleteButton" class="deleteBtn btn btn-danger pull-right" data-id=\{{_id}}>Delete</button>
-      <button type="button" name="show" class="editBtn btn btn-danger pull-right" data-id=\{{_id}}>Edit</button>
-      </div>
-      </div>
-      \{{/each}}
-      </div>
+        <div class="container">
+          \{{#each memory}}
+            <div class="row">
+              <div class="col-sm-2">
+                \{{#if mood}}
+                  <img src="http://imgur.com/jBOPYxF.jpg" class="img-circle"/>
+                \{{else}}
+                  <img src="http://imgur.com/Ko1osSG.jpg" class="img-circle"/>
+                \{{/if}}
+              </div>
+              <div class="col-sm-10 memory">
+                <h3> \{{who}}s Memory </h3>
+                <p> \{{memory}} </p>
+                <p> Submitted by \{{_user.username}}
+                <button type="button" name="deleteButton" class="deleteBtn btn btn-danger pull-right" data-id=\{{_id}}>Delete</button>
+                <button type="button" name="show" class="editBtn btn btn-danger pull-right" data-id=\{{_id}}>Edit</button>
+              </div>
+            </div>
+          \{{/each}}
+        </div>
       </script>
     </div>
 
