@@ -1,7 +1,5 @@
 var db = require('../models');
 var memory = db.Memory;
-var user = db.User;
-
 
 function index(req, res){
   memory.find({})
@@ -30,18 +28,20 @@ function show(req, res){
 
 
 function create(req, res){
+  console.log(req.user);
   var newMemory = new memory(req.body);
-
+  // .populate('user');
+  newMemory.user = req.user;
+  console.log("Logging memory");
+  console.log(newMemory);
+  console.log("Logging user attached to memory");
+  console.log(newMemory.user);
   newMemory.save(function(err, savedMemory){
     if(err){
       console.log(err);
     }
-    memory.find().populate('user').exec(function(user){
-      if(err){
-        console.log(err);
-      }
+
     });
-  });
   res.redirect('/');
 }
 
@@ -66,11 +66,25 @@ function destroy(req, res){
   });
 }
 
+function showUser(req, res){
+  console.log(req.params.userId);
+  var userId = req.params.userId;
+  memory.find({_user: userId})
+    .populate('_user')
+    .exec(function(err, memory){
+      if (err){
+        res.status(500).send(err);
+        return;
+      }
+      res.json(memory);
+    });
+}
 
 module.exports = {
   index: index,
   create: create,
   show: show,
   destroy: destroy,
-  update: update
+  update: update,
+  showUser: showUser
 };

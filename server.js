@@ -52,10 +52,12 @@ app.get('/signup', function(req, res){
 });
 
 app.get('/api/memories', controllers.memory.index);
+app.get('/api/memories/:userId', controllers.memory.showUser);
 app.post('/api/memories', controllers.memory.create);
 app.get('/api/memories/:_id', controllers.memory.show);
 app.put('/api/memories/:_id', controllers.memory.update);
 app.delete('/api/memories/:_id', controllers.memory.destroy);
+
 
 app.get('/api/users', controllers.User.index);
 app.get('/api/users/:_id', controllers.User.show);
