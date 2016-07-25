@@ -30,12 +30,26 @@ function show(req, res){
 
 
 function create(req, res){
-  var newMem = new memory(req.body);
-  
+  var newMem = new memory({
+  memory: req.body.memory,
+  mood: req.body.mood,
+  who: req.body.who,
+  user: []
+});
+  user.findOne({_id: req.user._id }, function (err, foundUser){
+    console.log(foundUser);
+    if(err){
+      console.log(err);
+    }
+    else if(foundUser){
+      newMem.user.push(foundUser);
+    }
+  });
   newMem.save(function(err, newMem){
     if(err){
       console.log(err);
     }
+    console.log(newMem);
     res.redirect('/');
   });
 }
