@@ -37,14 +37,9 @@ function create(req, res){
   user: []
 });
   user.findOne({_id: req.user._id }, function (err, foundUser){
-    console.log(foundUser);
-    if(err){
-      console.log(err);
-    }
-    else if(foundUser){
+
       newMem.user.push(foundUser);
-    }
-  });
+    });
   newMem.save(function(err, newMem){
     if(err){
       console.log(err);
