@@ -4,15 +4,9 @@ var passport= require('passport');
 
 
 function index(req, res){
-  User.find({})
-  .populate('memory')
-  .exec(function(err, books){
-      if (err) {
-        res.status(500).send(err);
-        return;
-      }
-      res.json(books);
-    });
+  User.find({}, function(err, users){
+    res.json(users);
+  });
   }
 
 
@@ -38,15 +32,10 @@ function destroy(req, res){
  });
 }
 
-function update(req, res){
-
-}
-
 
 module.exports = {
   index: index,
   create: create,
   show: show,
   destroy: destroy,
-  update: update
 };

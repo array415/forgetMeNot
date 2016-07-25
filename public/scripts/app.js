@@ -1,7 +1,7 @@
 $(document).ready(function() {
   console.log('app.js loaded!');
 
-  $.get('/memories', function (memories) {
+  $.get('/api/memories', function (memories) {
     memories.forEach(function(memory) {
       render(memory);
     });
@@ -10,7 +10,7 @@ $(document).ready(function() {
  $('.memoryWrapper').on('click', '.deleteBtn', function(deleted){
    $.ajax({
      method: 'DELETE',
-     url: '/memories/' + $(this).attr('data-id'),
+     url: '/api/memories/' + $(this).attr('data-id'),
      success: deleteSuccess,
      error: function(err){
        console.log("no" + err);
@@ -20,7 +20,7 @@ $(document).ready(function() {
 
 
  $('.memoryWrapper').on('click', '.editBtn', function(e){
-   console.log($(this).data());
+    $(this).data();
   });
 
  $('.newMem').on('click', function(redirect){
@@ -29,11 +29,6 @@ $(document).ready(function() {
 
  $('.logout').on('click', function(redirect){
     window.location = '/logout';
-  });
-
-  $('.signInWrapper').on('click', '.singUp',  function(event){
-    event.preventDefault();
-    window.location = '/users';
   });
 
   function deleteSuccess(data){

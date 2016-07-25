@@ -21,18 +21,11 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
 }));
-
 app.use(passport.initialize());
 app.use(passport.session());
-
-//passport
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-
-//bodyparser
-
-//static
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/views/memory.html');
@@ -41,6 +34,7 @@ app.get('/', function(req, res){
  }
 });
 
+app.get('/api', controllers.Get.getApi);
 app.get('/memories/new', function(req, res){
   res.sendFile(__dirname + '/views/create.html');
   if (!req.user) {
@@ -52,34 +46,27 @@ app.get('/signin', function(req, res){
   res.sendFile(__dirname + '/views/signin.html');
 });
 
-app.get('/users', function(req, res){
+app.get('/signup', function(req, res){
   res.sendFile(__dirname + '/views/signup.html');
 });
 
-app.get('/memories', controllers.memory.index);
-app.post('/memories', controllers.memory.create);
-app.get('/memories/:_id', controllers.memory.show);
-app.put('/memories/:_id', controllers.memory.update);
-app.delete('/memories/:_id', controllers.memory.destroy);
+app.get('/api/memories', controllers.memory.index);
+app.post('/api/memories', controllers.memory.create);
+app.get('/api/memories/:_id', controllers.memory.show);
+app.put('/api/memories/:_id', controllers.memory.update);
+app.delete('/api/memories/:_id', controllers.memory.destroy);
 
-app.get('/users', controllers.User.index);
-app.get('/users/:_id', controllers.User.show);
-app.post('/users', controllers.User.create);
-app.delete('/users/:_id', controllers.User.destroy);
+app.get('/api/users', controllers.User.index);
+app.get('/api/users/:_id', controllers.User.show);
+app.post('/api/users', controllers.User.create);
+app.delete('/api/users/:_id', controllers.User.destroy);
 
 app.post('/', passport.authenticate('local'), function (req, res) {
   console.log(req.user);
   res.redirect('/');
 });
 
-
-
-app.get('/logout', function (req, res) {
-  console.log("BEFORE logout", JSON.stringify(req.user));
-  req.logout();
-  console.log("AFTER logout", JSON.stringify(req.user));
-  res.redirect('/');
-});
+app.get('/logout', controllers.Get.getLogOut);
 
 app.listen(7000, function () {
   console.log('Express server is up and running on http://localhost:3000/');
