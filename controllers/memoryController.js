@@ -50,6 +50,7 @@ function update(req, res){
   memory.findById(req.params._id, function(err, editMemory){
     editMemory.memory = req.params.memory;
     editMemory.mood = req.params.mood;
+    editMemory.who = req.params.mood;
     editMemory.save(function(err, savedMemory){
       if(err){
         console.log('alert ' + err);

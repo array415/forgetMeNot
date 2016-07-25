@@ -1,33 +1,35 @@
+var allMemories = [];
+var template;
+
+
+
 $(document).ready(function() {
   console.log('app.js loaded!');
 
+  var memoryHtml = $('.memoryTemplate').html();
+  template = Handlebars.compile(memoryHtml);
+
   $.get('/api/memories', function (memories) {
-    memories.forEach(function(memory) {
-      render(memory);
+    allMemories = memories;
+    render();
+  });
+  $('.memoryWrapper').on('click', '.deleteBtn', function(deleted){
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/memories/' + $(this).attr('data-id'),
+      success: deleteSuccess,
+      error: function(err){
+        console.log("no" + err);
+      }
     });
   });
 
- $('.memoryWrapper').on('click', '.deleteBtn', function(deleted){
-   $.ajax({
-     method: 'DELETE',
-     url: '/api/memories/' + $(this).attr('data-id'),
-     success: deleteSuccess,
-     error: function(err){
-       console.log("no" + err);
-     }
-   });
- });
 
-
- $('.memoryWrapper').on('click', '.editBtn', function(e){
-    $(this).data();
-  });
-
- $('.newMem').on('click', function(redirect){
+  $('.newMem').on('click', function(redirect){
     window.location = '/memories/new';
   });
 
- $('.logout').on('click', function(redirect){
+  $('.logout').on('click', function(redirect){
     window.location = '/logout';
   });
 
@@ -35,6 +37,7 @@ $(document).ready(function() {
     console.log('deleted ' + JSON.stringify(data.memory));
     window.location = '/';
   }
+
 });
 
 
@@ -42,8 +45,7 @@ $(document).ready(function() {
 
 
 function render(memory){
-  var memoryHtml = $('.memoryTemplate').html();
-  var template = Handlebars.compile(memoryHtml);
-  var html = template(memory);
+
+  var html = template({memory: allMemories});
   $('.memoryWrapper').prepend(html);
 }
