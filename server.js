@@ -64,7 +64,7 @@ app.get('/api/users/:_id', controllers.User.show);
 app.post('/api/users', controllers.User.create);
 app.delete('/api/users/:_id', controllers.User.destroy);
 
-app.post('/', passport.authenticate('local'), function (req, res) {
+app.post('/login', passport.authenticate('local'), function (req, res) {
   console.log(req.user);
   res.redirect('/');
 });

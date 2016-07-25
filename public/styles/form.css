@@ -28,3 +28,17 @@ a{
 .row{
   margin: 15px;
 }
+
+.signUpWrapper{
+ background-color: grey;
+ width: 40%;
+ height: 45%;
+ margin: 5% 30%;
+ border-radius: 20px;
+ padding: 10px;
+
+}
+
+.signUpWrapper h1{
+  text-align: center;
+}

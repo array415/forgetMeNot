@@ -34,12 +34,14 @@ $(document).ready(function() {
     window.location = '/logout';
   });
 
+  $('.editBtn').on('click', function(event){
+    console.log('THIS BUTTON WORKS');
+  });
+
   function deleteSuccess(data){
-    console.log('deleted ' + JSON.stringify(data.memory));
     for(var i = 0; i < allMemories.length; i++){
       if(allMemories[i]._id === data._id) {
         allMemories.splice(i, 1);
-        console.log(allMemories);
         break;
       }
     }
