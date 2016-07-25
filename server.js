@@ -27,6 +27,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 app.set('view engine', 'hbs');
+app.use('/vendor', express.static(__dirname + '/bower_components'));
 
 app.get('/', function(req, res){
   res.render('memory', {user: JSON.stringify(req.user) + "|| null"});
@@ -64,7 +65,7 @@ app.get('/api/users/:_id', controllers.User.show);
 app.post('/api/users', controllers.User.create);
 app.delete('/api/users/:_id', controllers.User.destroy);
 
-app.post('/login', passport.authenticate('local'), function (req, res) {
+app.post('/signin', passport.authenticate('local'), function (req, res) {
   console.log(req.user);
   res.redirect('/');
 });

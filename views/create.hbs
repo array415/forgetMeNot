@@ -11,11 +11,8 @@
   <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
   <script href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.js" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-  <script type="text/javascript" src="/scripts/ajax.js">
 
-  </script>
 
-  
 </head>
 <body>
   <script type="text/javascript">
@@ -23,7 +20,7 @@
   </script>
   <div class="createWrapper">
 
-    <form class="createForm">
+    <form action="/api/memories" method="POST" class="createFor">
       <h1> forgetMeNot </h1>
 
       <div class="form-group">
@@ -31,13 +28,13 @@
         <div class="radio">
           <label>
             <input class="form-control" type="radio" name="mood" value="true" checked>
-            Happy Memory
+             Happy Memory
           </label>
         </div>
         <div class="radio">
           <label>
             <input class="form-control" type="radio" name="mood" value="false">
-            Sad Memory
+             Sad Memory
           </label>
         </div>
       </div>
