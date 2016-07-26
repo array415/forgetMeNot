@@ -1,13 +1,13 @@
-# forgetMeNot
+# forgetMeNot...
 
 forgetMeNot is my project one.
 I wanted to create a way for people who have a loved one who is currently dealing with dementia to share memories that might be lost to the disease.
 
-# Technologies Used
+# Technologies Used...
 
 Bootstrap/swatch, Jquery, HTML, Javascript, CSS, Passport, Cookie-Parser, Express, Express-Session, Mongoose, Mongodb
 
-# Existing Features
+# Existing Features...
 
 Existing features are very limited.
 
@@ -17,21 +17,21 @@ Sign Up
 Log In
 Log Out
 
-# Planned features
+# Planned features...
 
 EVERYTHING!
 
 Adding family model
 Adding ability for users to join family
 
-# Wireframe
+# Wireframe...
 
 ![wireframe 1](http://imgur.com/NLDsABI.jpg)
 ![wireframe 2](http://imgur.com/N3znob8.jpg)
 ![wireframe 3](http://imgur.com/7GWevIT.jpg)
 ![wireframe 4](http://imgur.com/mQbo7Gk.jpg)
 
-# Site Images
+# Site Images...
 
 ![site 1](http://imgur.com/Ep4R6j7.jpg)
 ![site 2](http://imgur.com/GS1ibkR.jpg)
