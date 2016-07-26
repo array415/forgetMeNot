@@ -11,6 +11,7 @@ function getApi(req, res){
       {method: "DELETE", path:"/api/users/:_id", description: "Remove a user"},
       {method: "GET", path:"/api/memories", description: "List of all memories"},
       {method: "GET", path:"/api/memories/:id", description: "Find one memory"},
+      {method: "GET", path:"/api/memories/:userId", description: "Find all memories by one user"},
       {method: "POST", path:"/api/memories", description: "Create new memory"},
       {method: "PUT", path:"/api/memories/:_id", description: "Edit memory"},
       {method: "DELETE", path:"/api/memories/:_id", description: "Delete memory"},
@@ -23,7 +24,7 @@ function getLogOut(req, res){
   res.redirect('/');
 }
 
-module.exports ={
+module.exports = {
   getApi: getApi,
   getLogOut: getLogOut
 };

@@ -31,24 +31,30 @@ app.use('/vendor', express.static(__dirname + '/bower_components'));
 
 app.get('/', function(req, res){
   res.render('index', {user: JSON.stringify(req.user) + "|| null"});
+  console.log(JSON.stringify(req.user));
   if (!req.user) {
-  return res.redirect('/signin');
- }
+    res.redirect('/signin');
+    return;
+  }
+
 });
 
 app.get('/create', function(req, res){
   res.render('create', {user: JSON.stringify(req.user) + "|| null"});
   if (!req.user) {
-  return res.redirect('/signin');
+  res.redirect('/signin');
+  return;
  }
 });
 // get sigin page
 app.get('/signin', function(req, res){
   res.render('signin');
+  return;
 });
 //get signup page
 app.get('/signup', function(req, res){
   res.render('signup');
+  return;
 });
 
 app.get('/api/memories', controllers.memory.index);
@@ -64,8 +70,8 @@ app.post('/api/users', controllers.user.create);
 app.delete('/api/users/:_id', controllers.user.destroy);
 
 app.post('/signin', passport.authenticate('local'), function (req, res) {
-  console.log(req.user);
   res.redirect('/');
+  return;
 });
 
 app.get('/api', controllers.get.getApi);

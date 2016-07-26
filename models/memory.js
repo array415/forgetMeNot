@@ -5,7 +5,6 @@ var User = require('./user');
 var MemorySchema = new Schema({
   memory: String,
   mood: Boolean,
-  imgUrl: String,
   who: String,
   _user: {type: Schema.Types.ObjectId, ref: 'User'}
 });
