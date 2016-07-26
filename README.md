@@ -23,3 +23,7 @@ EVERYTHING!
 
 Adding family model
 Adding ability for users to join family
+
+# Wireframe
+
+![wireframe 1](http://imgur.com/NLDsABI)
