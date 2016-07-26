@@ -26,4 +26,4 @@ Adding ability for users to join family
 
 # Wireframe
 
-![wireframe 1](http://imgur.com/NLDsABI)
+![wireframe 1](http://imgur.com/NLDsABI.jpg)
