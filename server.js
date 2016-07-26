@@ -71,6 +71,6 @@ app.post('/signin', passport.authenticate('local'), function (req, res) {
 app.get('/api', controllers.get.getApi);
 app.get('/logout', controllers.get.getLogOut);
 
-app.listen(7000, function () {
+app.listen(process.env.PORT || 7000, function () {
   console.log('Express server is up and running on http://localhost:3000/');
 });
