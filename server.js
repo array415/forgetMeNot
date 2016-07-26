@@ -35,19 +35,18 @@ app.get('/', function(req, res){
   return res.redirect('/signin');
  }
 });
-app.get('/api', controllers.Get.getApi);
 
-app.get('/memories/new', function(req, res){
+app.get('/create', function(req, res){
   res.render('create', {user: JSON.stringify(req.user) + "|| null"});
   if (!req.user) {
   return res.redirect('/signin');
  }
 });
-
+// get sigin page
 app.get('/signin', function(req, res){
   res.render('signin');
 });
-
+//get signup page
 app.get('/signup', function(req, res){
   res.render('signup');
 });
@@ -59,18 +58,18 @@ app.get('/api/memories/:_id', controllers.memory.show);
 app.put('/api/memories/:_id', controllers.memory.update);
 app.delete('/api/memories/:_id', controllers.memory.destroy);
 
-
-app.get('/api/users', controllers.User.index);
-app.get('/api/users/:_id', controllers.User.show);
-app.post('/api/users', controllers.User.create);
-app.delete('/api/users/:_id', controllers.User.destroy);
+app.get('/api/users', controllers.user.index);
+app.get('/api/users/:_id', controllers.user.show);
+app.post('/api/users', controllers.user.create);
+app.delete('/api/users/:_id', controllers.user.destroy);
 
 app.post('/signin', passport.authenticate('local'), function (req, res) {
   console.log(req.user);
   res.redirect('/');
 });
 
-app.get('/logout', controllers.Get.getLogOut);
+app.get('/api', controllers.get.getApi);
+app.get('/logout', controllers.get.getLogOut);
 
 app.listen(7000, function () {
   console.log('Express server is up and running on http://localhost:3000/');
