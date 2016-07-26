@@ -1,7 +1,5 @@
 # forgetMeNot
 
-/play ohmy
-
 forgetMeNot is my project one.
 I wanted to create a way for people who have a loved one who is currently dealing with dementia to share memories that might be lost to the disease.
 
