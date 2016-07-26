@@ -2,54 +2,64 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title></title>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link rel="stylesheet" href="/styles/styles.css">
-
-
-  <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
-  <script href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.js" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-
-
+  <title>Create</title>
+  <link rel="stylesheet" href="vendor/bootswatch/united/bootstrap.css">
+  <link rel="stylesheet" href="/styles/form.css">
+  <script src="vendor/jquery/dist/jquery.min.js"></script>
+  <script src="vendor/handlebars/handlebars.min.js"></script>
+  <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
+
 <body>
+
   <script type="text/javascript">
     window.user = {{{ user }}};
   </script>
+
   <div class="createWrapper">
 
     <form action="/api/memories" method="POST" class="createFor">
+
       <h1> forgetMeNot </h1>
 
       <div class="form-group">
+
         <label for="mood">Mood</label>
+
         <div class="radio">
           <label>
             <input class="form-control" type="radio" name="mood" value="true" checked>
              Happy Memory
           </label>
         </div>
+
         <div class="radio">
           <label>
             <input class="form-control" type="radio" name="mood" value="false">
              Sad Memory
           </label>
         </div>
+
       </div>
+
       <div class="form-group">
         <label for="who">Who's Memory</label>
         <input class="form-control" type="text" name="who">
       </div>
+
       <div class="form-group">
         <label for="memory">Memory</label>
         <textarea name="memory" class='form-control' rows='3'></textarea>
       </div>
+
       <div class="form-group">
-        <input type="submit" name="name" value="Submit!" class="btn btn-primary">
+        <input type="submit" name="name" value="Submit!" class="btn btn-success form-control">
       </div>
+
     </form>
+    <a href="/">Back</a>
   </div>
+
 </body>
+
 </html>

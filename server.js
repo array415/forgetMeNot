@@ -10,9 +10,8 @@ var db            = require('./models');
 var controllers   = require('./controllers');
 var User          = db.User;
 
-
-//auth
 app.use(express.static(__dirname + '/public'));
+//authentification
 app.use(cookieParser('secret'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -26,11 +25,12 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
 app.set('view engine', 'hbs');
 app.use('/vendor', express.static(__dirname + '/bower_components'));
 
 app.get('/', function(req, res){
-  res.render('memory', {user: JSON.stringify(req.user) + "|| null"});
+  res.render('index', {user: JSON.stringify(req.user) + "|| null"});
   if (!req.user) {
   return res.redirect('/signin');
  }
@@ -52,9 +52,9 @@ app.get('/signup', function(req, res){
 });
 
 app.get('/api/memories', controllers.memory.index);
+app.get('/api/memories/:_id', controllers.memory.show);
 app.get('/api/memories/:userId', controllers.memory.showUser);
 app.post('/api/memories', controllers.memory.create);
-app.get('/api/memories/:_id', controllers.memory.show);
 app.put('/api/memories/:_id', controllers.memory.update);
 app.delete('/api/memories/:_id', controllers.memory.destroy);
 

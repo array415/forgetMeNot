@@ -45,3 +45,12 @@ a{
 .signUpWrapper h1{
   text-align: center;
 }
+
+.createWrapper{
+  width: 30%;
+  height: 30%;
+  background-color: grey;
+  margin: 5% 33%;
+  border-radius: 15px;
+  padding: 10px;
+}

@@ -62,7 +62,6 @@ function destroy(req, res){
 }
 
 function showUser(req, res){
-  console.log(req.params.userId);
   var userId = req.params.userId;
   memory.find({_user: userId})
     .populate('_user')

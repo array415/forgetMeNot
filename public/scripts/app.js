@@ -14,7 +14,7 @@ $(document).ready(function() {
     render();
   });
 
-  $('.memoryWrapper').on('click', '.deleteBtn', function(deleted){
+  $('.memoryWrapper').on('click', '.delete', function(deleted){
     $.ajax({
       method: 'DELETE',
       url: '/api/memories/' + $(this).attr('data-id'),
@@ -23,20 +23,22 @@ $(document).ready(function() {
         console.log("no" + err);
       }
     });
+
   });
 
 
-  $('.newMem').on('click', function(redirect){
-    window.location = '/memories/new';
+  $('.newMem').on('click', function(event){
+    window.location = '/create';
   });
 
-  $('.logout').on('click', function(redirect){
+  $('.logout').on('click', function(event){
     window.location = '/logout';
   });
 
-  $('.editBtn').on('click', function(event){
+  $('.memoryWrapper').on('click', '.edit', function(event){
     console.log('THIS BUTTON WORKS');
   });
+
 
   function deleteSuccess(data){
     for(var i = 0; i < allMemories.length; i++){
