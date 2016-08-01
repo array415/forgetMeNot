@@ -65,7 +65,7 @@ app.get('/api/memories', controllers.memory.index);
 // That's a more common convention
 app.get('/api/memories/:_id', controllers.memory.show);
 
-// This is not RESTful. You should hit the /api/users/:id route to access one user by id
+// This route is not RESTful
 app.get('/api/memories/:userId', controllers.memory.showUser);
 app.post('/api/memories', controllers.memory.create);
 app.put('/api/memories/:_id', controllers.memory.update);
