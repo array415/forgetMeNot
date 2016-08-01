@@ -3,12 +3,12 @@ var User = db.User;
 var passport= require('passport');
 
 // This is written correctly, but generally not a good idea of a route to provide for security reasons
-// Imagine if Facebook had an api that returned a JSON resposne with all users?
+// Imagine if Facebook had an api that returned a JSON response with all users?
 function index(req, res){
   User.find({}, function(err, users){
     res.json(users);
   });
-  }
+}
 
 
 function show(req, res){
