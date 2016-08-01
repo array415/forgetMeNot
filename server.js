@@ -57,13 +57,22 @@ app.get('/signup', function(req, res){
   return;
 });
 
+// The controller name should be plural
+  // i.e. controllers.memories.index would point to 'memoriesController'
 app.get('/api/memories', controllers.memory.index);
+
+// I'd suggest writing /api/memories/:id without the underscore for this and other routes
+// That's a more common convention
 app.get('/api/memories/:_id', controllers.memory.show);
+
+// This is not RESTful. You should hit the /api/users/:id route to access one user by id
 app.get('/api/memories/:userId', controllers.memory.showUser);
 app.post('/api/memories', controllers.memory.create);
 app.put('/api/memories/:_id', controllers.memory.update);
 app.delete('/api/memories/:_id', controllers.memory.destroy);
 
+// The controller for users should be plural too
+  // i.e. controllers.users.index would point to 'usersController'
 app.get('/api/users', controllers.user.index);
 app.get('/api/users/:_id', controllers.user.show);
 app.post('/api/users', controllers.user.create);
@@ -71,6 +80,7 @@ app.delete('/api/users/:_id', controllers.user.destroy);
 
 app.post('/signin', passport.authenticate('local'), function (req, res) {
   res.redirect('/');
+  // This return isn't necessary and isn't doing anything there. Once the response is sent, the code stops executing
   return;
 });
 
@@ -78,5 +88,7 @@ app.get('/api', controllers.get.getApi);
 app.get('/logout', controllers.get.getLogOut);
 
 app.listen(process.env.PORT || 7000, function () {
+
+  // You should change this console log to say 7000 if that is where your server is going to run
   console.log('Express server is up and running on http://localhost:3000/');
 });

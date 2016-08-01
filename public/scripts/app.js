@@ -10,6 +10,8 @@ $(document).ready(function() {
   template = Handlebars.compile(memoryHtml);
 
   $.get('/api/memories', function (memories) {
+    // What if there is an error getting all memories?
+    // Build in some frontend error handling so the user knows if something went wrong
     allMemories = memories;
     render();
   });
@@ -26,7 +28,6 @@ $(document).ready(function() {
 
   });
 
-
   $('.newMem').on('click', function(event){
     window.location = '/create';
   });
@@ -36,6 +37,8 @@ $(document).ready(function() {
   });
 
   $('.memoryWrapper').on('click', '.edit', function(event){
+    // Remove this button and its event handler (or comment them out) if the edit route isn't completed
+    // Or, you could include a comment noting that this feature isn't built out yet
     console.log('THIS BUTTON WORKS');
   });
 
@@ -51,6 +54,8 @@ $(document).ready(function() {
   }
 
   function render(memory){
+    // You might want to consider building the template to accept memories one-by-one instead of using Handlebars each
+    // That way, you won't have to re-render all memories each time that one is added or deleted
     $('.memoryWrapper').empty();
     var html = template({memory: allMemories});
     $('.memoryWrapper').prepend(html);

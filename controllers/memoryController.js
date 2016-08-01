@@ -1,10 +1,12 @@
 var db = require('../models');
+// I'd recommend capitalizing this variable name to indicate that it refers to a DB model (like you did with User in userController)
 var memory = db.Memory;
 
 function index(req, res){
   memory.find({})
   .populate('_user')
   .exec(function(err, memories){
+    // Nice error handling!
     if (err) {
       res.status(500).send(err);
       return;
@@ -32,10 +34,12 @@ function create(req, res){
   newMemory._user = req.user;
   newMemory.save(function(err, savedMemory){
     if(err){
+      // You might want to send a status code instead of console logging
       console.log(err);
     }
 
   });
+  // Usually, a create action will send JSON containing the newly created memory
   res.redirect('/');
 }
 
@@ -43,11 +47,13 @@ function create(req, res){
 
 function update(req, res){
   memory.findById(req.params._id, function(err, editMemory){
+    // foundMemory might be a better variable name, since it's the memory that was returned by memory.findById
     editMemory.memory = req.params.memory;
     editMemory.mood = req.params.mood;
     editMemory.who = req.params.mood;
     editMemory.save(function(err, savedMemory){
       if(err){
+        // You might want to send a status code instead of console logging
         console.log('alert ' + err);
       }
       res.json(savedMemory);

@@ -1,3 +1,6 @@
+/*Styles should be ordered from most general to most specific*/
+/*ie Element selectors, then class selectors, then ID selectors (if any - best to avoid these)*/
+
 body{
   background-image: url("http://i.imgur.com/FM4GKPB.jpg");
   background-size: cover;
@@ -42,6 +45,7 @@ a{
 
 }
 
+/*This is redundant with the h1 style above*/
 .signUpWrapper h1{
   text-align: center;
 }
