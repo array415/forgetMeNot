@@ -1,5 +1,5 @@
 var db = require('../models');
-// I'd recommend capitalizing this variable name to indicate that it refers to a DB model (like you did with User in userController)
+// TODO: Capitalize this variable name to indicate that it refers to a DB model (like you did with User in userController)
 var memory = db.Memory;
 
 function index(req, res){
@@ -34,12 +34,11 @@ function create(req, res){
   newMemory._user = req.user;
   newMemory.save(function(err, savedMemory){
     if(err){
-      // You might want to send a status code instead of console logging
+      // TODO: You might want to send a status code instead of console logging
       console.log(err);
     }
 
   });
-  // Usually, a create action will send JSON containing the newly created memory
   res.redirect('/');
 }
 
@@ -53,7 +52,7 @@ function update(req, res){
     editMemory.who = req.params.mood;
     editMemory.save(function(err, savedMemory){
       if(err){
-        // You might want to send a status code instead of console logging
+        // TODO: You might want to send a status code instead of console logging
         console.log('alert ' + err);
       }
       res.json(savedMemory);
@@ -64,6 +63,7 @@ function update(req, res){
 function destroy(req, res){
   memory.findOneAndRemove({_id: req.params._id}, function(err, removedMemory){
     res.json(removedMemory);
+    //TODO: Needs error handling
   });
 }
 

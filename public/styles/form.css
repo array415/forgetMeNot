@@ -1,4 +1,4 @@
-/*Styles should be ordered from most general to most specific*/
+/* TODO: Styles should be ordered from most general to most specific*/
 /*ie Element selectors, then class selectors, then ID selectors (if any - best to avoid these)*/
 
 body{
@@ -13,7 +13,7 @@ body{
 .signInWrapper{
   margin: 10% 30%;
   background: grey;
-  height: 20%:
+  height: 20%;
   width: 15%;
   padding: 10px;
   border-radius: 15px;
@@ -45,7 +45,7 @@ a{
 
 }
 
-/*This is redundant with the h1 style above*/
+/*TODO:This is redundant with the h1 style above*/
 .signUpWrapper h1{
   text-align: center;
 }

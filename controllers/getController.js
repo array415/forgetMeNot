@@ -12,7 +12,7 @@ function getApi(req, res){
       {method: "DELETE", path:"/api/users/:_id", description: "Remove a user"},
       {method: "GET", path:"/api/memories", description: "List of all memories"},
       {method: "GET", path:"/api/memories/:id", description: "Find one memory"},
-      // The proper way to write this route would be to GET /api/users/:id/memories
+      // TODO: This is not restful. The proper way to write this route would be to GET /api/users/:id/memories
       {method: "GET", path:"/api/memories/:userId", description: "Find all memories by one user"},
       {method: "POST", path:"/api/memories", description: "Create new memory"},
       {method: "PUT", path:"/api/memories/:_id", description: "Edit memory"},
@@ -21,6 +21,7 @@ function getApi(req, res){
   });
 }
 
+// TODO: This shouldn't be defined here. You can define this message in server.js with the other login/logout actions
 function getLogOut(req, res){
   req.logout();
   res.redirect('/');
