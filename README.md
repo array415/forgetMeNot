@@ -19,8 +19,6 @@ Existing features are very limited.
 
 # Planned features
 
-EVERYTHING!
-
 Adding family model
 Adding ability for users to join family
 
