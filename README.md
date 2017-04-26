@@ -9,8 +9,6 @@ Bootstrap/swatch, Jquery, HTML, Javascript, CSS, Passport, Cookie-Parser, Expres
 
 # Existing Features
 
-Existing features are very limited.
-
 * Create new memories
 * Delete memories
 * Sign Up
